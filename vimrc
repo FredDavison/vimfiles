@@ -1,3 +1,4 @@
+" test to check functioning of symlink
 colorscheme sweyla988775
 
 " load Pathogen plugin manager
