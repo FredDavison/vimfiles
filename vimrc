@@ -25,7 +25,6 @@ set incsearch
 
 " show what command you're typing
 set showcmd
-set autoindent
 
 " tabs as spaces
 set expandtab
@@ -34,6 +33,7 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set autoindent
 
 " scroll when near bottom of screen
 set scrolloff=0
@@ -58,5 +58,4 @@ set listchars=tab:>-,trail:-,eol:$
 augroup reload_vimrc " {
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
-    autocmd BufWritePost /Users/fda/vimsync/vimrc source $MYVIMRC
 augroup END " }
