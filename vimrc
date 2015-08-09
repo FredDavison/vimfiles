@@ -1,4 +1,4 @@
-" test to check functioning of symlink
+" mac deletion of symlink related text
 colorscheme sweyla988775
 
 " load Pathogen plugin manager
