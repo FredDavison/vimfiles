@@ -1,5 +1,3 @@
-" last edited 13 May 2015 FCD
-
 colorscheme sweyla988775
 
 " load Pathogen plugin manager
