@@ -1,5 +1,7 @@
 " last edited 13 May 2015 FCD
 
+colorscheme sweyla988775
+
 " load Pathogen plugin manager
 call pathogen#infect()
 
@@ -17,7 +19,7 @@ syntax on
 
 " highlight line the cursor is on
 set cursorline
-highlight cursorline ctermbg=001 guibg=#2cdd27
+highlight cursorline ctermbg=015 guibg=#2cdd27 cterm=underline
 
 " searc highlighting and incremental search  on
 set hlsearch
@@ -40,7 +42,7 @@ set scrolloff=0
 
 " wrap before 80th column
 let &colorcolumn=join(range(80,999),",")
-highlight ColorColumn ctermbg=001 guibg=#2cdd27
+highlight ColorColumn ctermbg=015 guibg=#2cdd27
 set textwidth=79
 set formatoptions+=t
 
