@@ -1,5 +1,4 @@
-" mac deletion of symlink related text
-colorscheme sweyla988775
+" test to check functioning of symlink
 
 " load Pathogen plugin manager
 call pathogen#infect()
@@ -15,10 +14,6 @@ filetype plugin on
 filetype indent on
 filetype plugin on 
 syntax on
-
-" highlight line the cursor is on
-set cursorline
-highlight cursorline ctermbg=008 guibg=#2cdd27 cterm=underline
 
 " searc highlighting and incremental search  on
 set hlsearch
@@ -39,9 +34,9 @@ set autoindent
 " scroll when near bottom of screen
 set scrolloff=0
 
-" wrap before 80th column
-let &colorcolumn=join(range(80,999),",")
-highlight ColorColumn ctermbg=008 guibg=#2cdd27
+set colorcolumn=0
+
+" text width for format command gq
 set textwidth=79
 set formatoptions+=t
 
@@ -54,6 +49,36 @@ set autoread
 
 " show tabs and trailing whitespace
 set listchars=tab:>-,trail:-,eol:$
+
+" GUI - GVim - options
+" --------------------
+"make gui fullscreen
+if has('gui_running')
+
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=L  "remove left-hand scroll bar
+
+    colorscheme desert
+
+    " map F11 to fullscreen mode
+    " map <F11>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+    map <F11> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+
+    " set font and size
+    set guifont=Cousine:h8
+
+    " colour all columns beyond 80
+    let &colorcolumn=join(range(80,999),",")
+    highlight ColorColumn ctermbg=1 guibg=#2c2c2c
+
+    " highlight line the cursor is on
+    set cursorline
+    highlight cursorline ctermbg=05 guibg=#2c2c2c cterm=underline
+
+
+endif
 
 " auto reload ._vimrc on any changes to ._vimrc
 augroup reload_vimrc " {
