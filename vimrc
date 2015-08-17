@@ -9,9 +9,6 @@ filetype plugin on
 filetype indent on
 syntax on
 
-" line numbers on
-set number
-
 " searc highlighting and incremental search  on
 set hlsearch
 set incsearch 
@@ -21,6 +18,11 @@ set showcmd
 
 " tabs as spaces
 set expandtab
+
+" start with line numbering on and relative numbering off
+" see toggle shortcut below
+set number
+set norelativenumber
 
 " tab width
 set tabstop=4
@@ -37,6 +39,15 @@ set autoread
 
 " show tabs and trailing whitespace
 set listchars=tab:>-,trail:-,eol:$
+
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
 
 " -----------------------------------------------------------------------------
 "                                 GUI options
@@ -75,6 +86,9 @@ augroup END " }
 " -----------------------------------------------------------------------------
 let mapleader = '\'
 
+" toggle between relative and normal line numbering
+nnoremap <leader>N :set number!<CR>:set relativenumber!<CR>
+
 " jj to eccape in insert mode
 inoremap jj <Esc>
 nnoremap JJJJ <Nop>
@@ -93,3 +107,11 @@ nnoremap <leader>wy <C-w>h<C-w>k
 nnoremap <leader>wb <C-w>h<C-w>j
 nnoremap <leader>wu <C-w>l<C-w>k
 nnoremap <leader>wn <C-w>l<C-w>j
+
+" move between tabs
+nnoremap <leader>tn :tabn<CR>
+nnoremap <leader>tp :tabp<CR>
+nnoremap <leader>te :tabe<CR>
+
+" run python on current file (would be nice if shell was other than cmd)
+nnoremap <F9> :exec ':!python' shellescape(@%, 1)<CR>
