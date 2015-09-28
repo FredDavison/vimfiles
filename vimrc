@@ -19,10 +19,10 @@ set showcmd
 " tabs as spaces
 set expandtab
 
-" start with line numbering on and relative numbering off
-" see toggle shortcut below
+" start with relative line numbering on and absolute numbering for current line
+" see toggle below
+set relativenumber
 set number
-set norelativenumber
 
 " tab width
 set tabstop=4
@@ -87,7 +87,8 @@ augroup END " }
 let mapleader = '\'
 
 " toggle between relative and normal line numbering
-nnoremap <leader>N :set number!<CR>:set relativenumber!<CR>
+" nnoremap <leader>N :set number!<CR>:set relativenumber!<CR>
+nnoremap <leader>N :set relativenumber!<CR>
 
 " jj to eccape in insert mode
 inoremap jj <Esc>
