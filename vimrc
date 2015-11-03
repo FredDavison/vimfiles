@@ -58,21 +58,36 @@ if has('gui_running')
     set guioptions-=r  "remove right-hand scroll bar
     set guioptions-=L  "remove left-hand scroll bar
 
-    colorscheme desert
+" -----------------------------------------------------------------------------
+" comment/uncomment these lines to use dark desert theme
+" -----------------------------------------------------------------------------
+    " colorscheme desert
+    " " colour all columns beyond 80
+    " let &colorcolumn=join(range(80,999),",")
+    " highlight ColorColumn ctermbg=1 guibg=#2c2c2c
+    " " highlight line the cursor is on
+    " set cursorline
+    " highlight cursorline ctermbg=05 guibg=#2c2c2c cterm=underline
+
+" -----------------------------------------------------------------------------
+" comment/uncomment these lines to use light pyte theme
+" -----------------------------------------------------------------------------
+    " colorscheme pyte
+    " " colour all columns beyond 80
+    " highlight ColorColumn ctermbg=1 guibg=#E4E4E4
+
+" -----------------------------------------------------------------------------
+" comment/uncomment these lines to use light summerfruit theme
+" -----------------------------------------------------------------------------
+    colorscheme summerfruit256
+    " colour all columns beyond 80
+    highlight ColorColumn ctermbg=1 guibg=#F9F9F9
 
     " map F11 to fullscreen mode
     map <F11> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 
     " set font and size
     set guifont=Cousine:h8
-
-    " colour all columns beyond 80
-    let &colorcolumn=join(range(80,999),",")
-    highlight ColorColumn ctermbg=1 guibg=#2c2c2c
-
-    " highlight line the cursor is on
-    set cursorline
-    highlight cursorline ctermbg=05 guibg=#2c2c2c cterm=underline
 endif
 
 " auto reload ._vimrc on any changes to ._vimrc
@@ -109,10 +124,18 @@ nnoremap <leader>wb <C-w>h<C-w>j
 nnoremap <leader>wu <C-w>l<C-w>k
 nnoremap <leader>wn <C-w>l<C-w>j
 
+" insert lines above/below without leaving normal mode
+nnoremap <leader>o o<Esc>k
+nnoremap <leader>O O<Esc>j
+
 " move between tabs
 nnoremap <leader>tn :tabn<CR>
 nnoremap <leader>tp :tabp<CR>
 nnoremap <leader>te :tabe<CR>
+
+" jump to next function definition
+nnoremap <leader>f /def\s<CR>:noh<CR>
+nnoremap <leader>F ?def\s<CR>:noh<CR>
 
 " run python on current file (would be nice if shell was other than cmd)
 nnoremap <F9> :exec ':!python' shellescape(@%, 1)<CR>
