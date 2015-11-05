@@ -319,7 +319,3 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 endif
 
 " vim: set fdl=0 fdm=marker:
-
-" FCD Python addition 80+ column highlighting
-let &colorcolumn=join(range(80,999),",")
-highlight ColorColumn ctermbg=1 guibg=#E4E4E4

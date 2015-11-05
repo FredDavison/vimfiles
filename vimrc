@@ -82,6 +82,8 @@ if has('gui_running')
     colorscheme summerfruit256
     " colour all columns beyond 80
     highlight ColorColumn ctermbg=1 guibg=#F9F9F9
+    set cursorline
+    highlight CursorLine ctermbg=00 guibg=#F0F0F0 cterm=underline
 
     " map F11 to fullscreen mode
     map <F11> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
@@ -136,6 +138,8 @@ nnoremap <leader>te :tabe<CR>
 " jump to next function definition
 nnoremap <leader>f /def\s<CR>:noh<CR>
 nnoremap <leader>F ?def\s<CR>:noh<CR>
+vnoremap <leader>f /def\s<CR>
+vnoremap <leader>F ?def\s<CR>
 
 " run python on current file (would be nice if shell was other than cmd)
 nnoremap <F9> :exec ':!python' shellescape(@%, 1)<CR>
