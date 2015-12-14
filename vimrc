@@ -4,6 +4,9 @@ call pathogen#infect()
 " break compatibility with vi, allow vim commands
 set nocompatible
 
+" search upwards in file tree for tags file
+set tags=.\tags;
+
 " syntax highlighting and filetype specific indent on
 filetype plugin on
 filetype indent on
@@ -81,15 +84,18 @@ if has('gui_running')
 " -----------------------------------------------------------------------------
     colorscheme summerfruit256
     " colour all columns beyond 80
+    let &colorcolumn=join(range(80,999),",")
     highlight ColorColumn ctermbg=1 guibg=#F9F9F9
     set cursorline
+    set cursorcolumn
     highlight CursorLine ctermbg=00 guibg=#F0F0F0 cterm=underline
+    highlight CursorColumn ctermbg=00 guibg=#FCFCFC cterm=underline
 
     " map F11 to fullscreen mode
     map <F11> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 
     " set font and size
-    set guifont=Cousine:h8
+    set guifont=Cousine:h7
 endif
 
 " auto reload ._vimrc on any changes to ._vimrc
@@ -140,6 +146,9 @@ nnoremap <leader>f /def\s<CR>:noh<CR>
 nnoremap <leader>F ?def\s<CR>:noh<CR>
 vnoremap <leader>f /def\s<CR>
 vnoremap <leader>F ?def\s<CR>
+
+" insert ipdb breakpoint
+nnoremap <F5> o<CR>import ipdb; ipdb.set_trace()<Esc>
 
 " run python on current file (would be nice if shell was other than cmd)
 nnoremap <F9> :exec ':!python' shellescape(@%, 1)<CR>
