@@ -89,13 +89,18 @@ if has('gui_running')
     set cursorline
     set cursorcolumn
     highlight CursorLine ctermbg=00 guibg=#F0F0F0 cterm=underline
-    highlight CursorColumn ctermbg=00 guibg=#FCFCFC cterm=underline
+    highlight CursorColumn ctermbg=00 guibg=#FBFBFB cterm=underline
 
     " map F11 to fullscreen mode
     map <F11> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 
     " set font and size
-    set guifont=Cousine:h7
+    if has("win32")
+        set guifont=Cousine:h7
+    else
+        set guifont=Menlo:h9
+    endif
+
 endif
 
 " auto reload ._vimrc on any changes to ._vimrc
@@ -148,7 +153,7 @@ vnoremap <leader>f /def\s<CR>
 vnoremap <leader>F ?def\s<CR>
 
 " insert ipdb breakpoint
-nnoremap <F5> o<CR>import ipdb; ipdb.set_trace(); pass<Esc>
+nnoremap <leader>ip o<CR>import ipdb; ipdb.set_trace(); pass<Esc>
 
 " run python on current file (would be nice if shell was other than cmd)
 nnoremap <F9> :exec ':!python' shellescape(@%, 1)<CR>
