@@ -66,6 +66,10 @@ function! s:DiffWithSaved()
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 
+" xml folding
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
+
 " -----------------------------------------------------------------------------
 "                                 GUI options
 " -----------------------------------------------------------------------------
