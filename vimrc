@@ -22,6 +22,9 @@ set showcmd
 " tabs as spaces
 set expandtab
 
+" show ruler
+set ruler
+
 " start with relative line numbering on and absolute numbering for current line
 " see toggle below
 set relativenumber
@@ -98,7 +101,7 @@ if has('gui_running')
     if has("win32")
         set guifont=Cousine:h7
     else
-        set guifont=Menlo:h9
+        set guifont=Monaco:h10
     endif
 
 endif
@@ -153,7 +156,7 @@ vnoremap <leader>f /def\s<CR>
 vnoremap <leader>F ?def\s<CR>
 
 " insert ipdb breakpoint
-nnoremap <leader>ip o<CR>import ipdb; ipdb.set_trace()<Esc>
+nnoremap <leader>ip oimport ipdb; ipdb.set_trace()<Esc>
 
 " run python on current file (would be nice if shell was other than cmd)
 nnoremap <F9> :exec ':!python' shellescape(@%, 1)<CR>
