@@ -7,6 +7,9 @@ set nocompatible
 " search upwards in file tree for tags file
 set tags=.\tags;
 
+" reduce completion time (need to check why it takes so long without this option)
+set complete-=i
+
 " taglist options
 let Tlist_Show_One_File=1
 let Tlist_Close_On_Select=1
@@ -69,6 +72,12 @@ com! DiffSaved call s:DiffWithSaved()
 " xml folding
 let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
+
+"  ctags plugin
+"if has("win32")
+"    let g:ctags_path="C:/ctags58"
+"endif
+"let g:ctags_statusline=1
 
 " -----------------------------------------------------------------------------
 "                                 GUI options
@@ -178,3 +187,6 @@ nnoremap <leader>ip oimport ipdb; ipdb.set_trace(); pass<Esc>
 
 " run python on current file (would be nice if shell was other than cmd)
 nnoremap <F9> :exec ':!python' shellescape(@%, 1)<CR>
+
+" shortcut for BDelete command
+:nnoremap <Leader>bd :Bdelete<CR>
