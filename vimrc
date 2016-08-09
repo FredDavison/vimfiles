@@ -7,10 +7,26 @@ set nocompatible
 " search upwards in file tree for tags file
 set tags=.\tags;
 
+" reduce completion time (need to check why it takes so long without this option)
+set complete-=i
+
+" taglist options
+let Tlist_Show_One_File=1
+let Tlist_Close_On_Select=1
+let Tlist_GainFocus_On_ToggleOpen=1
+let Tlist_WinWdith=50
+
 " syntax highlighting and filetype specific indent on
 filetype plugin on
 filetype indent on
 syntax on
+
+" autocomplete up to first point of ambiguity
+set wildmenu
+set wildmode=list:longest
+
+" tilde for change case should be followed by a motion
+set tildeop
 
 " searc highlighting and incremental search  on
 set hlsearch
@@ -39,6 +55,7 @@ set autoindent
 " text width for format command gq
 set textwidth=79
 set formatoptions+=t
+set nowrap
 
 " autoupdate files that have been edited in other programs
 set autoread
@@ -54,6 +71,16 @@ function! s:DiffWithSaved()
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
+
+" xml folding
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
+
+"  ctags plugin
+"if has("win32")
+"    let g:ctags_path="C:/ctags58"
+"endif
+"let g:ctags_statusline=1
 
 " -----------------------------------------------------------------------------
 "                                 GUI options
@@ -117,6 +144,9 @@ augroup END " }
 " -----------------------------------------------------------------------------
 let mapleader = '\'
 
+" taglist shortcuts
+nnoremap <leader>tt :TlistToggle<CR>
+
 " toggle between relative and normal line numbering
 " nnoremap <leader>N :set number!<CR>:set relativenumber!<CR>
 nnoremap <leader>N :set relativenumber!<CR>
@@ -152,11 +182,18 @@ nnoremap <leader>te :tabe<CR>
 " jump to next function definition
 nnoremap <leader>f /def\s<CR>:noh<CR>
 nnoremap <leader>F ?def\s<CR>:noh<CR>
-vnoremap <leader>f /def\s<CR>
-vnoremap <leader>F ?def\s<CR>
+" vnoremap <leader>f /def\s<CR>
+" vnoremap <leader>F ?def\s<CR>
 
 " insert ipdb breakpoint
+<<<<<<< HEAD
 nnoremap <leader>ip oimport ipdb; ipdb.set_trace()<Esc>
+=======
+nnoremap <leader>ip oimport ipdb; ipdb.set_trace(); pass<Esc>
+>>>>>>> origin/master
 
 " run python on current file (would be nice if shell was other than cmd)
 nnoremap <F9> :exec ':!python' shellescape(@%, 1)<CR>
+
+" shortcut for BDelete command
+:nnoremap <Leader>bd :Bdelete<CR>
