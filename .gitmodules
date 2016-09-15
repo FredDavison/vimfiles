@@ -1,0 +1,18 @@
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "vim-colors-solarized"]
+	path = vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
+[submodule "vim-bbye"]
+	path = vim-bbye
+	url = https://github.com/moll/vim-bbye
+[submodule "auto-pairs"]
+	path = auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs
+[submodule "bundle/vim-colors-solarized"]
+	path = bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
+[submodule "bundle/auto-pairs"]
+	path = bundle/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs

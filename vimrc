@@ -76,6 +76,9 @@ com! DiffSaved call s:DiffWithSaved()
 let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
 
+" python folding
+au FileType python setlocal foldmethod=indent
+
 "  ctags plugin
 "if has("win32")
 "    let g:ctags_path="C:/ctags58"
@@ -196,4 +199,4 @@ nnoremap <leader>ip oimport ipdb; ipdb.set_trace(); pass<Esc>
 nnoremap <F9> :exec ':!python' shellescape(@%, 1)<CR>
 
 " shortcut for BDelete command
-:nnoremap <Leader>bd :Bdelete<CR>
+:nnoremap :bd :Bdelete<CR>
