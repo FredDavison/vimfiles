@@ -189,11 +189,7 @@ nnoremap <leader>F ?def\s<CR>:noh<CR>
 " vnoremap <leader>F ?def\s<CR>
 
 " insert ipdb breakpoint
-<<<<<<< HEAD
 nnoremap <leader>ip oimport ipdb; ipdb.set_trace()<Esc>
-=======
-nnoremap <leader>ip oimport ipdb; ipdb.set_trace(); pass<Esc>
->>>>>>> origin/master
 
 " run python on current file (would be nice if shell was other than cmd)
 nnoremap <F9> :exec ':!python' shellescape(@%, 1)<CR>
