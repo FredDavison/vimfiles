@@ -195,4 +195,4 @@ nnoremap <leader>ip oimport ipdb; ipdb.set_trace()<Esc>
 nnoremap <F9> :exec ':!python' shellescape(@%, 1)<CR>
 
 " shortcut for BDelete command
-:nnoremap :bd :Bdelete<CR>
+:nnoremap :bd<CR> :Bdelete<CR>
