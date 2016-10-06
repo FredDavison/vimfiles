@@ -52,6 +52,8 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 
+autocmd FileType cpp setlocal tabstop=2 shiftwidth=2
+
 " text width for format command gq
 set textwidth=79
 set formatoptions+=t
