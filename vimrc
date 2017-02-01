@@ -131,11 +131,10 @@ if has('gui_running')
 
     " set font and size
     if has("win32")
-        set guifont=Cousine:h7
+        set guifont=Consolas:h8:cANSI
     else
         set guifont=Monaco:h10
     endif
-
 endif
 
 " auto reload ._vimrc on any changes to ._vimrc
@@ -192,6 +191,9 @@ nnoremap <leader>F ?def\s<CR>:noh<CR>
 
 " insert ipdb breakpoint
 nnoremap <leader>ip oimport ipdb; ipdb.set_trace()<Esc>
+
+" insert traceback catch
+nnoremap <leader>it oimport traceback; traceback.print_exc()<Esc>
 
 " run python on current file (would be nice if shell was other than cmd)
 nnoremap <F9> :exec ':!python' shellescape(@%, 1)<CR>
