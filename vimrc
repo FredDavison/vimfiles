@@ -55,7 +55,7 @@ set autoindent
 autocmd FileType cpp setlocal tabstop=2 shiftwidth=2
 
 " text width for format command gq
-set textwidth=79
+set textwidth=0
 set formatoptions+=t
 set nowrap
 
@@ -135,6 +135,8 @@ if has('gui_running')
     else
         set guifont=Monaco:h10
     endif
+else
+
 endif
 
 " auto reload ._vimrc on any changes to ._vimrc
@@ -198,5 +200,5 @@ nnoremap <leader>it oimport traceback; traceback.print_exc()<Esc>
 " run python on current file (would be nice if shell was other than cmd)
 nnoremap <F9> :exec ':!python' shellescape(@%, 1)<CR>
 
-" shortcut for BDelete command
-:nnoremap :bd<CR> :Bdelete<CR>
+" replace word under cursor with last yanked word
+nnoremap <leader>r ciw<C-r>0<Esc>
